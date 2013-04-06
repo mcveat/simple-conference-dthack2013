@@ -40,6 +40,10 @@ ul ul li, ul ol li,
 ol ol li, ol ul li { margin-bottom: 7px; }
 li { line-height: 21px; margin-bottom: 14px; }
 
+.icon {
+	font-family: "WebSymbolsRegular";
+}
+
 
 /* #font-face
 ================================================== */
@@ -227,7 +231,7 @@ section .setuppart .initiator .highlight {
 .footer li a:active { 
 	color: #fff;
 	-webkit-text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
-	-moz-text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9));
+	-moz-text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
 	text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
 }
 
@@ -453,7 +457,112 @@ h3.lbutton a:hover {
 }
 
 
+/* #Login page
+================================================== */
 
+body.confirm .confirmation {
+	max-width: 100%;
+	margin: 0%;
+	padding: 14px;
+	border: 1px solid #ededed;
+	background: #fff;
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	
+	-webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+}
+body.confirm h2 {
+	margin: 0 0 2px 0;
+}
+
+body.confirm h4 {
+	font-size: 18px;
+	margin: 2px 0 14px 0;
+	position: absolute;
+	font-weight: bold;
+}
+
+body.confirm .companylogo {
+	margin: 7px 0 0 0;
+	float: right;
+	position: relative;
+}
+
+body.confirm .summary {
+	margin-top: 14px;
+	font-size: 18px;
+}
+
+body.confirm .summary .highlight {
+	font-weight: bold;
+}
+
+body.confirm .summary .ctitle {
+	font-size: 28px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 1em;
+	padding: 7px 0 7px 0;
+	margin: 0 0 21px 0px;
+	background: rgba(0,0,0,0.5);
+}
+
+body.confirm .summary .ctime,
+body.confirm .summary .cdate {
+	font-weight: bold;
+}
+
+body.confirm .icon {
+	font-size: 28px;
+	line-height: 28px;
+	text-shadow: 0px 0px 5px rgba(247,247,247,1);
+}
+
+body.confirm .trademark {
+	color: #366;
+	font-weight: bold;
+}
+
+body.confirm .cpartsummary {
+	font-size: 18px;
+}
+
+body.confirm .cpartsummarytxt {
+	margin-bottom: 10px;
+}
+
+body.confirm li.cpart:first-child  {
+	margin: 28px 0 14px 0;
+}
+
+body.confirm li.cpart  {
+	margin: 14px 0 14px 0;
+}
+
+body.confirm li.cpart:last-child  {
+	margin: 14px 0 28px 0;
+}
+
+body.confirm .summaryend a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #69aa35;
+}
+
+body.confirm .summaryend a:hover {
+	font-weight: bold;
+	text-decoration: none;
+	color: #5d972f;
+}
+
+body.confirm .summaryend {
+	font-size: 14px;
+	margin: 35px 0 0 0;
+}
 
 /* #Media Queries
 ================================================== */
@@ -489,6 +598,17 @@ h3.lbutton a:hover {
 
 /* #Font-Face
 ================================================== */
+
+@font-face {
+	font-family: 'WebSymbolsRegular';
+	src: 	url("../fonts/websymbols/websymbols-regular-webfont.eot");
+	src: 	url("../fonts/websymbols/websymbols-regular-webfont.eot?#iefix") format('embedded-opentype'),	
+			url("../fonts/websymbols/websymbols-regular-webfont.woff") format('woff'),
+			url("../fonts/websymbols/websymbols-regular-webfont.ttf") format('truetype'),
+			url("../fonts/websymbols/websymbols-regular-webfont.svg#WebSymbolsRegular") format('svg');						
+}
+
+
 /* 	This is the proper syntax for an @font-face file
 		Just create a "fonts" folder at the root,
 		copy your FontName into code below and remove
