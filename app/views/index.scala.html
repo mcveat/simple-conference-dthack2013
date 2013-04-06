@@ -1,7 +1,25 @@
 @(message: String)
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
-    
+@main("New conference") {
+    <h1>New conference</h1>
+    <div class="form">
+        <div>
+            Date:
+            <div class="input">
+                <input name="date" type="text"/>
+            </div>
+        </div>
+        <div>
+            Agenda:
+            <div class="input">
+                <textarea name="agenda"></textarea>
+            </div>
+        </div>
+        <div>
+            Numbers:
+            <div class="input">
+                <textarea name="numbers"></textarea>
+            </div>
+        </div>
+    </div>
 }
