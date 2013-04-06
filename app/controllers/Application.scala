@@ -2,9 +2,10 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import models.ConferenceDao
+import models.{FormContact, ConferenceDao}
 import client.Evernote
 import util.Mailer
+import play.api.libs.json.JsValue
 
 object Application extends Controller {
   
@@ -23,7 +24,7 @@ object Application extends Controller {
         date <- (json \ "date").asOpt[String]
         title <- (json \ "title").asOpt[String]
         agenda <- (json \ "agenda").asOpt[String]
-        contacts <- (json \ "contacts").asOpt[String]
+        contacts <- (json \ "contacts").asOpt[Array[JsValue]]
         noteUrl <- request.session.get("evernote-note-url")
         authToken <- request.session.get("evernote-auth-token")
         userShard <- request.session.get("evernote-user-shard")
@@ -42,12 +43,14 @@ object Application extends Controller {
     SeeOther(routes.Application.index.url).withNewSession
   }
 
-  private def extractContacts(s: String) = {
-    s.lines.map(_.split(" ").toList).map {
-      case number :: email :: Nil => Some((Some(number), Some(email)))
-      case number :: Nil => Some((Some(number), None))
-      case _ => None
-    }.toList.flatten
+  private def extractContacts(contacts: Array[JsValue]) = contacts.map(js2FormContact(_)).toSeq
+
+  def js2FormContact(json: JsValue): FormContact = {
+    val name = (json \ "name").as[String]
+    val email = (json \ "email").asOpt[String]
+    val phone = (json \ "phone").as[String]
+    val initiator = (json \ "initiator").as[Boolean]
+    FormContact(phone, name, email, initiator)
   }
 
   def javascriptRoutes = Action { implicit request =>

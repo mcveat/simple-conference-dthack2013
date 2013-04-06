@@ -1,36 +1,108 @@
 @main("New conference") {
-    <h1>New conference</h1>
-    <div class="form">
-        <div>
-            Date:
-            <div class="input">
-                <input name="date" type="text" value="06-04-2013 23:59"/>
-            </div>
-        </div>
-        <div>
-            Title:
-            <div class="input">
-                <input name="title" type="text" value="Conference you don't want to join. Really :)">
-            </div>
-        </div>
-        <div>
-            Agenda:
-            <div class="input">
-                <textarea name="agenda">
-That will be pretty boring meeting!
+
+<section>
+    <div class="container">
+        <div class="ten columns">
+            <h2>Set up a new conference call</h2>
+            <div class="setuptitle">
+                <input type="text" placeholder="Conference title" name="title" value="Conference you cannot reject" />
+            </div> <!-- end setuptitle -->
+
+            <div class="setupdate">
+                <div class="five columns alpha">
+                    <p class="title">Enter a date</p>
+                    <form class="date clearfix">
+                        <input type="text" placeholder="e.g. 04/07/2013" name="date" value="04/07/2013" />
+                    </form>
+                </div>
+                <div class="five columns omega">
+                    <p class="title">Enter a time</p>
+                    <form class="time clearfix">
+                        <input type="text" placeholder="e.g. 03.15pm" name="time" value="03.15pm" />
+                    </form>
+                </div>
+            </div> <!-- end setupdate -->
+
+            <div class="setupagenda">
+                <p class="title">Agenda</p>
+                <textarea class="agenda clearfix" name="agenda">
+* Discussion about fighting techniques
+* Choosing the best weapons
                 </textarea>
+                <p class="sync clearfix">Syncs with Evernote&reg;</p>
+            </div> <!-- end setupagenda -->
+
+            <div class="setuppart">
+                <p class="title">Add participants</p>
+                <hr />
+
+                <div class="addpart initiator">
+                    <p class="highlight">Meeting initiator</p>
+                    <form class="name clearfix">
+                        <input type="text" placeholder="Name" name="name" value="Bruce Lee" />
+                    </form>
+                    <div class="five columns alpha">
+                        <form class="email clearfix">
+                            <input type="email" placeholder="Email" name="email" value="bruce@@lee.com" />
+                        </form>
+                    </div>
+                    <div class="five columns omega">
+                        <form class="phone clearfix">
+                            <input type="text" placeholder="Phone no." name="phone" value="+493200000001" />
+                        </form>
+                    </div>
+                    <hr />
+                </div> <!-- end addpart -->
+
+                <div class="addpart">
+                    <form class="name clearfix">
+                        <input type="text" placeholder="Name" name="name" value="John Rambo" />
+                    </form>
+                    <div class="five columns alpha">
+                        <form class="email clearfix">
+                            <input type="email" placeholder="Email" name="email" value="john@@rambo.com" />
+                        </form>
+                    </div>
+                    <div class="five columns omega">
+                        <form class="phone clearfix">
+                            <input type="text" placeholder="Phone no." name="phone" value="+493200000002" />
+                        </form>
+                    </div>
+                    <hr />
+                </div> <!-- end addpart -->
+
+            </div> <!-- end setuppart -->
+
+            <div class="notice">
+                <p class="explainer">
+                    <span>Every participant will receive a personal invite when you save the conference call.
+                        <br />We will also send a reminder 10min before the conference call starts.</span>
+                    <span>At the designated time, CallSpark will call all participants automatically.</span>
+                </p>
+                <div class="submit">
+                    <input type="submit" name="confirm" value="Confirm and send invites" class="sbutton required" id="new-conference" />
+                </div>
             </div>
-        </div>
-        <div>
-            Contacts:
-            <div class="input">
-                <textarea name="contacts">
-+493200000001 someone@@example.com
-+493200000002 someone@@else.com
-+493200000003
-                </textarea>
-            </div>
-        </div>
-        <button id="new-conference">Create!</button>
-    </div>
+            <hr />
+        </div> <!-- end ten columns -->
+
+
+
+        <aside class="six columns">
+            <div class="sub partners">
+                <header>
+                    <h4>Technology by</h4>
+                </header>
+                <div class="badge">
+                    <a href="http://dev.evernote.com/"><img src="/assets/img/evernote_adm.jpg" /></a>
+                </div>
+                <div class="badge">
+                    <a href="http://www.developergarden.com/"><img src="/assets/img/devgardenadm.jpg" /></a>
+                </div>
+
+            </div> <!-- end sponsor-->
+        </aside><!-- end six -->
+    </div><!-- end container -->
+</section>
+
 }

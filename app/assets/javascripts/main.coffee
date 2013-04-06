@@ -1,11 +1,20 @@
 $ ->
   $('#new-conference').click (e) ->
-    form = $(e.target).closest '.form'
+    e.preventDefault()
+    container = $(e.target).closest '.container'
+    date = container.find('input[name=date]').val()
+    time = container.find('input[name=time]').val()
+    contacts = $.map container.find('.addpart'), (e) ->
+      name: $(e).find('input[name=name]').val()
+      email: $(e).find('input[name=email]').val()
+      phone: $(e).find('input[name=phone]').val()
+      initiator: $(e).hasClass('initiator')
+
     data =
-      date: form.find('input[name=date]').val()
-      title: form.find('input[name=title]').val()
-      agenda: form.find('textarea[name=agenda]').val()
-      contacts: form.find('textarea[name=contacts]').val()
+      date: "#{date} #{time}"
+      title: container.find('input[name=title]').val()
+      agenda: container.find('textarea[name=agenda]').val()
+      contacts: contacts
 
     $.ajax
       type: 'POST'

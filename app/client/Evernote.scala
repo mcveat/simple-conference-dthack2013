@@ -44,7 +44,7 @@ object Evernote {
     val note = new Note
     note.setTitle("Conference call at %s" format c.date)
     val contactsList = c.contacts.map { contact =>
-      val number = contact.number.map("<b>%s</b> " format _).getOrElse("")
+      val number = "<b>%s</b> " format contact.number
       val email = contact.email.map("<i>%s</i>" format _).getOrElse("")
       "<li>%s%s</li>".format(number, email)
     }.mkString

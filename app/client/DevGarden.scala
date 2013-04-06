@@ -12,14 +12,13 @@ import com.telekom.api.conferencecall.model.{NewParticipantRequest, CreateConfer
 object DevGarden {
   lazy val config = Config.DevGarden
   def startConference(c: Conference) {
-    val participants = c.contacts.filter(_.number.isDefined)
-    if (participants.isEmpty) return
+    if (c.contacts.isEmpty) return
     val auth = new TelekomOAuth2Auth(config.clientId, config.secret, config.scope)
     auth.requestAccessToken()
     if (!auth.hasValidToken) throw new RuntimeException("invalid devgarden token")
     val client = new ConferenceCallClient(auth, config.env)
     val call = new ConferenceCall(auth, client, c.title)
-    call.setParticipants(participants)
+    call.setParticipants(c.contacts)
     call.start
   }
 
@@ -34,9 +33,7 @@ object DevGarden {
       if (!res.getSuccess) throw new RuntimeException("conference creation failed")
       res.getConferenceId
     }
-    def setParticipants(participants: Seq[Contact]) = {
-      participants.zipWithIndex.foreach(addParticipant _)
-    }
+    def setParticipants(participants: Seq[Contact]) = participants.foreach(addParticipant _)
     def start = {
       val res = client.commitConference(conferenceId)
       if (!res.getSuccess) {
@@ -44,18 +41,17 @@ object DevGarden {
         throw new RuntimeException("failed to start the conference because %s" format msg)
       }
     }
-    private def addParticipant(participant: (Contact, Int)) = participant match {
-      case (c, index) =>
-        val req = new NewParticipantRequest()
-        req.setConferenceId(conferenceId)
-        req.setNumber(c.number.get)
-        c.email.map(req.setEmail(_))
-        req.setIsInitiator(index == 0)
-        val res = client.newParticipant(req)
-        if (!res.getSuccess) {
-          val msg = res.getStatus.getStatusMessage
-          throw new RuntimeException("failed to add contact %s to conference call because %s".format(c.toString, msg))
-        }
+    private def addParticipant(c: Contact) = {
+      val req = new NewParticipantRequest()
+      req.setConferenceId(conferenceId)
+      req.setNumber(c.number)
+      c.email.map(req.setEmail(_))
+      req.setIsInitiator(c.initiator)
+      val res = client.newParticipant(req)
+      if (!res.getSuccess) {
+        val msg = res.getStatus.getStatusMessage
+        throw new RuntimeException("failed to add contact %s to conference call because %s".format(c.toString, msg))
+      }
     }
   }
 }

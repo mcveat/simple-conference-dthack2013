@@ -14,7 +14,7 @@
             contacts:
                 <ul>
                     @conf.contacts.map { contact =>
-                        <li>@contact.number @contact.email
+                        <li>@contact.name @contact.number @contact.email @if(contact.initiator) { initiator }
                     }
                 </ul>
         </div>

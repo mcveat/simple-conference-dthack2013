@@ -1,17 +1,101 @@
 @(title: String)(content: Html)
 
 <!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
 
-<html>
-    <head>
-        <title>Simple conference @title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
-        <script src="@routes.Application.javascriptRoutes" type="text/javascript"></script>
-        <script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript"></script>
-    </head>
-    <body>
-        @content
-    </body>
+        <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>CallSpark - Simple conference calling - @title</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+        <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/base.css")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/skeleton.css")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/layout.css")">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+        <!-- Favicons
+	================================================== -->
+    <link rel="shortcut icon" href="@routes.Assets.at("img/favicon.ico")">
+    <link rel="apple-touch-icon" href="@routes.Assets.at("img/apple-touch-icon.png")">
+    <link rel="apple-touch-icon" sizes="72x72" href="@routes.Assets.at("img/apple-touch-icon-72x72.png")">
+    <link rel="apple-touch-icon" sizes="114x114" href="@routes.Assets.at("img/apple-touch-icon-114x114.png")">
+</head>
+<body>
+    <div class="band header">
+        <header class="container main">
+            <div class="sixteen columns">
+                <h1 class="logo"><a href="">CallSpark</a></h1>
+                <nav class="navigation">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a class="selected" href="#">Set up new call</a></li>
+                        <li><a href="#"><span class="highlight">&euro; 25.60</span> // My account</a></li>
+                        <li><a class="omega" href="#"> <span class="highlight">Log out</span></li></a>
+                    </ul>
+                </nav>
+            </div>
+        </header><!-- end container -->
+    </div><!-- end band -->
+
+    @content
+
+    <div class="band footer">
+        <footer class="container main">
+            <div class="four columns">
+                <h3 class="logo"><a href="#">CallSpark</a> </h3>
+                <ul>
+                    <li class="contact"><a href="https://www.twitter.com/getcallspark">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="four columns">
+                <heading>
+                    <h4>Support</h4>
+                </heading>
+                <ul>
+                    <li class="conference"><a href="#">Setting up a conference</a></li>
+                    <li class="about"><a href="#">About CallSpark</a></li>
+                </ul>
+            </div>
+        </footer><!-- end container -->
+    </div><!-- end footer band -->
+
+    <div class="band ffooter">
+        <footer class="container">
+            <div class="eight columns first-credit">
+                <p>Copyright &copy; 2013 CallSpark</p>
+            </div> <!-- end eight -->
+
+            <div class="eight columns last-credit">
+                <p> by <a href="http://www.twitter.com/jdker/">@@jdker</a> and <a href="http://www.twitter.com/mcveat/">@@mcveat</a></p>
+            </div>
+        </footer<!-- end container -->
+    </div><!-- end bottom band -->
+
+        <!-- JS
+	================================================== -->
+    <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/underscore-min.js")" type="text/javascript"></script>
+    <script src="@routes.Application.javascriptRoutes" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript"></script>
+
+            <!-- End Document ================================================== -->
+</body>
 </html>

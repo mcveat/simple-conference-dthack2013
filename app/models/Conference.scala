@@ -13,7 +13,7 @@ case class Conference(id: Long, date: String, title: String, agenda: String, con
 
 object ConferenceDao {
   type ContactData = (Option[String], Option[String])
-  def create(date: String, title: String, agenda: String, contacts: Seq[ContactData]) =
+  def create(date: String, title: String, agenda: String, contacts: Seq[FormContact]) =
     DB.withTransaction { implicit c =>
       val id = SQL("insert into conference(date, title, agenda) values ({date}, {title}, {agenda})")
         .on('date -> date, 'title -> title, 'agenda -> agenda).executeInsert(scalar[Long].single)
