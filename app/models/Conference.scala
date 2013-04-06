@@ -24,6 +24,7 @@ object ConferenceDao {
   def addAgendaUrl(c: Conference, agendaUrl: String) = DB.withConnection { implicit conn =>
     SQL("update conference set agenda_url = {agendaUrl} where id = {id}").on('agendaUrl -> agendaUrl, 'id -> c.id)
       .executeUpdate()
+    c.copy(agendaUrl = Some(agendaUrl))
   }
   val parser = long("id") ~ str("date") ~ str("agenda") ~ get[Option[String]]("agenda_url") map {
     case id ~ date ~ agenda ~ agendaUrl => Conference(id, date, agenda, Contact.listFor(id), agendaUrl)

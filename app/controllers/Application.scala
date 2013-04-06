@@ -4,6 +4,7 @@ import play.api._
 import play.api.mvc._
 import models.ConferenceDao
 import client.Evernote
+import util.Mailer
 
 object Application extends Controller {
   
@@ -28,7 +29,8 @@ object Application extends Controller {
       } yield {
         val c = ConferenceDao.create(date, agenda, extractContacts(contacts))
         val agendaUrl = Evernote.storeAgenda(noteUrl, authToken, userShard, c)
-        ConferenceDao.addAgendaUrl(c, agendaUrl)
+        val cc = ConferenceDao.addAgendaUrl(c, agendaUrl)
+        Mailer.sendInvitations(cc)
         Ok
       }
     }

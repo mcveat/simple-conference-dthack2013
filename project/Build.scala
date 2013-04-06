@@ -11,6 +11,7 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     "com.evernote" % "evernote-api" % "1.23",
     "org.scribe" % "scribe" % "1.3.3",
+    "com.typesafe" %% "play-plugins-mailer" % "2.1.0",
     jdbc,
     anorm
   )
