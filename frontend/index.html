@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>CallSpark - Simple conference calling</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,600' rel='stylesheet' type='text/css'>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	
+
+
+
+</head>
+<body>
+
+	<div class="band header">
+		<header class="container main">
+			<div class="sixteen columns">
+				<h1 class="logo"><a href="">CallSpark</a></h1>
+				<nav class="navigation">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a class="selected" href="#">Set up new call</a></li>						
+						<li><a href="#"><span class="highlight">&euro; 25.60</span> // My account</a></li>
+						<li><a class="omega" href="#"> <span class="highlight">Log out</span></li></a>										
+					</ul>
+				</nav>
+			</div>
+		</header><!-- end container -->
+	</div><!-- end band -->	
+		
+	<section>
+		<div class="container">						
+			<div class="ten columns">
+				<h2>Set up a new conference call</h2>	
+				<div class="setuptitle">
+					<input type="text" placeholder="Conference title" value="" />
+				</div> <!-- end setuptitle -->
+				
+				<div class="setupdate">
+					<div class="five columns alpha">
+						<p class="title">Enter a date</p>
+						<form class="date clearfix">
+								<input type="text" placeholder="e.g. 04/07/2013" value="" />
+						</form>			
+					</div>
+					<div class="five columns omega">
+						<p class="title">Enter a time</p>
+						<form class="time clearfix">
+								<input type="text" placeholder="e.g. 03.15pm" value="" />
+						</form>			
+					</div>
+				</div> <!-- end setupdate -->	
+
+				<div class="setupagenda">
+					<p class="title">Agenda</p>
+					<textarea class="agenda clearfix"></textarea>	
+					<p class="sync clearfix">Syncs with Evernote&reg;</p>					
+				</div> <!-- end setupagenda -->
+
+				<div class="setuppart">
+					<p class="title">Add participants</p>	
+					<hr />
+								
+						<div class="addpart initiator">
+							<p class="highlight">Meeting initiator</p>
+							<form class="name clearfix">
+									<input type="text" placeholder="Name" value="" />
+							</form>							
+							<div class="five columns alpha">
+								<form class="email clearfix">
+										<input type="email" placeholder="Email" value="" />
+								</form>			
+							</div>
+							<div class="five columns omega">
+								<form class="phone clearfix">
+										<input type="text" placeholder="Phone no." value="" />
+								</form>			
+							</div>
+							<hr />						
+						</div> <!-- end addpart -->	
+
+						<div class="addpart">
+							<form class="name clearfix">
+									<input type="text" placeholder="Name" value="" />
+							</form>							
+							<div class="five columns alpha">
+								<form class="email clearfix">
+										<input type="email" placeholder="Email" value="" />
+								</form>			
+							</div>
+							<div class="five columns omega">
+								<form class="phone clearfix">
+										<input type="text" placeholder="Phone no." value="" />
+								</form>			
+							</div>
+							<hr />						
+						</div> <!-- end addpart -->							
+
+				</div> <!-- end setuppart -->
+			
+				<div class="notice">
+					<p class="explainer">
+						<span>Every participant will receive a personal invite when you save the conference call. 
+						<br />We will also send a reminder 10min before the conference call starts.</span>
+						<span>At the designated time, CallSpark will call all participants automatically.</span>	
+					</p>
+					<div class="submit">
+						<input type="submit" name="confirm" value="Confirm and send invites" class="sbutton required" id="" />
+					</div>
+				</div>										
+				<hr />
+			</div> <!-- end ten columns -->			
+
+
+
+			<aside class="six columns">
+				<div class="sub partners">
+					<header>
+						<h4>Technology by</h4>
+					</header>
+					<div class="badge">
+						<a href="http://dev.evernote.com/"><img src="img/evernote_adm.jpg" /></a>
+					</div>
+					<div class="badge">
+						<a href="http://www.developergarden.com/"><img src="img/devgardenadm.jpg" /></a>
+					</div>					
+	
+				</div> <!-- end sponsor-->
+			</aside><!-- end six -->
+		</div><!-- end container -->
+	</section><!-- end section -->	
+
+
+	<div class="band footer">
+		<footer class="container main">					
+			<div class="four columns">
+				<h3 class="logo"><a href="#">CallSpark</a> </h3>
+				<ul>
+					<li class="contact"><a href="https://www.twitter.com/getcallspark">Contact</a></li>
+				</ul> 
+			</div>
+
+			<div class="four columns">
+				<heading>
+					<h4>Support</h4>
+				</heading>
+				<ul>
+					<li class="conference"><a href="#">Setting up a conference</a></li>
+					<li class="about"><a href="#">About CallSpark</a></li>					
+				</ul>			
+			</div>			
+		</footer><!-- end container -->
+	</div><!-- end footer band -->	
+
+	<div class="band ffooter">
+		<footer class="container">					
+			<div class="eight columns first-credit">
+				<p>Copyright &copy; 2013 CallSpark</p>
+			</div> <!-- end eight -->
+
+			<div class="eight columns last-credit">
+				<p> by <a href="http://www.twitter.com/jdker/">@jdker</a> and <a href="http://www.twitter.com/mcveat/">@mcveat</a></p>
+			</div>
+		</footer<!-- end container -->
+	</div><!-- end bottom band -->	
+
+	<!-- JS
+	================================================== -->
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery.min.js"><\/script>')</script>
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
