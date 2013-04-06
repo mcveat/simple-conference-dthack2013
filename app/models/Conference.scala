@@ -26,6 +26,9 @@ object ConferenceDao {
       .executeUpdate()
     c.copy(agendaUrl = Some(agendaUrl))
   }
+  def find(id: Int) = DB.withConnection { implicit c =>
+    SQL("select * from conference where id = {id}").on('id -> id).singleOpt(parser)
+  }
   val parser = long("id") ~ str("date") ~ str("agenda") ~ get[Option[String]]("agenda_url") map {
     case id ~ date ~ agenda ~ agendaUrl => Conference(id, date, agenda, Contact.listFor(id), agendaUrl)
   }

@@ -52,7 +52,8 @@ object Application extends Controller {
   def javascriptRoutes = Action { implicit request =>
     Ok(
       Routes.javascriptRouter("jsRoutes")(
-        routes.javascript.Application.newConference
+        routes.javascript.Application.newConference,
+        routes.javascript.Telekom.startConference
       )
     ).as("text/javascript")
   }

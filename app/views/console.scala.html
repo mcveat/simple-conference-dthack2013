@@ -2,7 +2,10 @@
 
 @main("Console") {
     @c.map { conf =>
-        <div class="console-item">
+        <div class="console-item" data-id="@conf.id">
+            <div class="buttons">
+                <button data-action="start-conference">Start conference</button>
+            </div>
             id: @conf.id <br/>
             date: @conf.date <br/>
             agenda: @conf.agenda <br/>

@@ -10,6 +10,8 @@ GET     /reset                      controllers.Application.resetSession
 GET     /evernote-login             controllers.EvernoteAuth.evernoteLogin
 GET     /evernote-callback          controllers.EvernoteAuth.evernoteCallback
 
+GET     /start-conference/:id       controllers.Telekom.startConference(id: Int)
+
 GET     /console                    controllers.Console.index
 
 GET     /js-routes                  controllers.Application.javascriptRoutes

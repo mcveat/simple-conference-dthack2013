@@ -11,5 +11,13 @@ $ ->
       contentType: 'application/json'
       url: jsRoutes.controllers.Application.newConference().url
       data: JSON.stringify data
-      success: ->
-        console.log 'works'
+      success: -> alert 'done'
+      error: -> alert 'failed'
+
+  $('.console-item button[data-action="start-conference"]').click (e) ->
+    id = $(e.target).closest('.console-item').attr 'data-id'
+    $.ajax
+      type: 'GET'
+      url: jsRoutes.controllers.Telekom.startConference(id).url
+      success: -> alert 'done'
+      error: -> alert 'failed'

@@ -5,4 +5,9 @@
 .console-item {
     margin: 10px;
     padding: 20px;
+    width: 75%
+}
+
+.console-item .buttons {
+    float: right;
 }
