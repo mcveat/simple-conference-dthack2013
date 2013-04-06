@@ -22,8 +22,11 @@ object Application extends Controller {
         date <- (json \ "date").asOpt[String]
         agenda <- (json \ "agenda").asOpt[String]
         contacts <- (json \ "contacts").asOpt[String]
+        noteUrl <- request.session.get("evernote-note-url")
+        authToken <- request.session.get("evernote-auth-token")
       } yield {
-        Conference.create(date, agenda, extractContacts(contacts))
+        val c = Conference.create(date, agenda, extractContacts(contacts))
+        Evernote.storeAgenda(noteUrl, authToken, c)
         Ok
       }
     }
