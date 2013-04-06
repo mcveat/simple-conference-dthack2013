@@ -1,0 +1,17 @@
+@(c: Seq[Conference])
+
+@main("Console") {
+    @c.map { conf =>
+        <div class="console-item">
+            id: @conf.id <br/>
+            date: @conf.date <br/>
+            agenda: @conf.agenda <br/>
+            contacts:
+                <ul>
+                    @conf.contacts.map { contact =>
+                        <li>@contact.number @contact.email
+                    }
+                </ul>
+        </div>
+    }
+}

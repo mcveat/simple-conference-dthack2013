@@ -2,6 +2,7 @@ package controllers
 
 import play.api._
 import play.api.mvc._
+import models.Conference
 
 object Application extends Controller {
   
@@ -10,8 +11,25 @@ object Application extends Controller {
   }
 
   def newConference = Action { implicit request =>
-    println(request.body.asJson)
-    Ok
+    val result = request.body.asJson.flatMap { json =>
+      for {
+        date <- (json \ "date").asOpt[String]
+        agenda <- (json \ "agenda").asOpt[String]
+        contacts <- (json \ "contacts").asOpt[String]
+      } yield {
+        Conference.create(date, agenda, extractContacts(contacts))
+        Ok
+      }
+    }
+    result getOrElse BadRequest
+  }
+
+  private def extractContacts(s: String) = {
+    s.lines.map(_.split(" ").toList).map {
+      case number :: email :: Nil => Some((Some(number), Some(email)))
+      case number :: Nil => Some((Some(number), None))
+      case _ => None
+    }.toList.flatten
   }
 
   def javascriptRoutes = Action { implicit request =>
