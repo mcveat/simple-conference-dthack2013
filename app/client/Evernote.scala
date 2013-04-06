@@ -52,13 +52,14 @@ object Evernote {
       """<?xml version="1.0" encoding="UTF-8"?>
         | <!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
         | <en-note>
-        |   <h1>You're invited to conference call at %s</h1>
+        |   <h1>You're invited to conference call "%s"</h1>
+        |   Conference is scheduled at %s.
         |   <h2>Agenda</h2>
         |   <div>%s</div>
         |   <h2>Participants</h2>
         |   <div>%s</div>
         | </en-note>
-      """.stripMargin.format(c.date, c.agenda, contactsList))
+      """.stripMargin.format(c.title, c.date, c.agenda, contactsList))
     note
   }
 }

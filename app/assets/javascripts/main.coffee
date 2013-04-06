@@ -3,6 +3,7 @@ $ ->
     form = $(e.target).closest '.form'
     data =
       date: form.find('input[name=date]').val()
+      title: form.find('input[name=title]').val()
       agenda: form.find('textarea[name=agenda]').val()
       contacts: form.find('textarea[name=contacts]').val()
 

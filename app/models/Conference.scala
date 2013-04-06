@@ -8,15 +8,16 @@ import anorm.SqlParser._
 /**
  * User: mcveat
  */
-case class Conference(id: Long, date: String, agenda: String, contacts: Seq[Contact] = Seq(),
+case class Conference(id: Long, date: String, title: String, agenda: String, contacts: Seq[Contact] = Seq(),
                       agendaUrl: Option[String] = None)
 
 object ConferenceDao {
   type ContactData = (Option[String], Option[String])
-  def create(date: String, agenda: String, contacts: Seq[ContactData]) = DB.withTransaction { implicit c =>
-    val id = SQL("insert into conference(date, agenda) values ({date}, {agenda})")
-      .on('date -> date, 'agenda -> agenda).executeInsert(scalar[Long].single)
-    Conference(id, date, agenda, contacts.map(Contact.create(id, _)))
+  def create(date: String, title: String, agenda: String, contacts: Seq[ContactData]) =
+    DB.withTransaction { implicit c =>
+      val id = SQL("insert into conference(date, title, agenda) values ({date}, {title}, {agenda})")
+        .on('date -> date, 'title -> title, 'agenda -> agenda).executeInsert(scalar[Long].single)
+      Conference(id, date, title, agenda, contacts.map(Contact.create(id, _)))
   }
   def list = DB.withConnection { implicit c =>
     SQL("select * from conference order by id desc").list(parser)
@@ -29,7 +30,7 @@ object ConferenceDao {
   def find(id: Int) = DB.withConnection { implicit c =>
     SQL("select * from conference where id = {id}").on('id -> id).singleOpt(parser)
   }
-  val parser = long("id") ~ str("date") ~ str("agenda") ~ get[Option[String]]("agenda_url") map {
-    case id ~ date ~ agenda ~ agendaUrl => Conference(id, date, agenda, Contact.listFor(id), agendaUrl)
+  val parser = long("id") ~ str("date") ~ str("title") ~ str("agenda") ~ get[Option[String]]("agenda_url") map {
+    case id ~ date ~ title ~ agenda ~ agendaUrl => Conference(id, date, title, agenda, Contact.listFor(id), agendaUrl)
   }
 }

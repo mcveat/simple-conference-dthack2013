@@ -20,9 +20,10 @@ object Mailer {
     mail.addRecipient(r)
     mail.sendHtml(
       """
-        |<h1>You're invited to conference call on %s</h1>
+        |<h1>You're invited to conference call "%s"</h1>
+        |Conference is scheudled on %s.
         |<a href="%s">Check conference details and agenda.</a>
-      """.stripMargin.format(c.date, c.agendaUrl.getOrElse(""))
+      """.stripMargin.format(c.title, c.date, c.agendaUrl.getOrElse(""))
     )
   }
 }

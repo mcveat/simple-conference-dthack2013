@@ -21,13 +21,14 @@ object Application extends Controller {
     val result = request.body.asJson.flatMap { json =>
       for {
         date <- (json \ "date").asOpt[String]
+        title <- (json \ "title").asOpt[String]
         agenda <- (json \ "agenda").asOpt[String]
         contacts <- (json \ "contacts").asOpt[String]
         noteUrl <- request.session.get("evernote-note-url")
         authToken <- request.session.get("evernote-auth-token")
         userShard <- request.session.get("evernote-user-shard")
       } yield {
-        val c = ConferenceDao.create(date, agenda, extractContacts(contacts))
+        val c = ConferenceDao.create(date, title, agenda, extractContacts(contacts))
         val agendaUrl = Evernote.storeAgenda(noteUrl, authToken, userShard, c)
         val cc = ConferenceDao.addAgendaUrl(c, agendaUrl)
         Mailer.sendInvitations(cc)
