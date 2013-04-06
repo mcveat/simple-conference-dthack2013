@@ -43,16 +43,19 @@ public class EvernoteAuthToken extends Token {
     private static final Pattern NOTESTORE_REGEX = Pattern.compile("edam_noteStoreUrl=([^&]+)");
     private static final Pattern WEBAPI_REGEX = Pattern.compile("edam_webApiUrlPrefix=([^&]+)");
     private static final Pattern USERID_REGEX = Pattern.compile("edam_userId=([^&]+)");
+    private static final Pattern USER_SHARD_REGEX = Pattern.compile("edam_shard=([^&]+)");
 
     private String noteStoreUrl;
     private String webApiUrlPrefix;
     private int userId;
+    private String userShard;
 
     public EvernoteAuthToken(Token token) {
         super(token.getToken(), token.getSecret(), token.getRawResponse());
         this.noteStoreUrl = extract(getRawResponse(), NOTESTORE_REGEX);
         this.webApiUrlPrefix = extract(getRawResponse(), WEBAPI_REGEX);
         this.userId = Integer.parseInt(extract(getRawResponse(), USERID_REGEX));
+        this.userShard = extract(getRawResponse(), USER_SHARD_REGEX);
     }
 
     private String extract(String response, Pattern p) {
@@ -84,5 +87,9 @@ public class EvernoteAuthToken extends Token {
      */
     public int getUserId() {
         return userId;
+    }
+
+    public String getUserShard() {
+        return userShard;
     }
 }

@@ -6,6 +6,7 @@
             id: @conf.id <br/>
             date: @conf.date <br/>
             agenda: @conf.agenda <br/>
+            @conf.agendaUrl.map { a => agenda url: <a href="@a">@a</a><br/> }
             contacts:
                 <ul>
                     @conf.contacts.map { contact =>

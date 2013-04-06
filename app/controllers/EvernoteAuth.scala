@@ -21,10 +21,10 @@ object EvernoteAuth extends Controller {
       oauthToken <- qs.get("oauth_token").flatMap(_.headOption)
       oauthVerifier <- qs.get("oauth_verifier").flatMap(_.headOption)
     } yield {
-      val (authToken, noteUrl) = Evernote.getAccessToken(requestToken, requestSecret, oauthVerifier)
+      val (authToken, noteUrl, userShard) = Evernote.getAccessToken(requestToken, requestSecret, oauthVerifier)
       SeeOther(routes.Application.index.url).withSession(
         request.session + ("evernote-oauth-token" -> oauthToken) + ("evernote-oauth-verifier" -> oauthVerifier) +
-          ("evernote-auth-token" -> authToken) + ("evernote-note-url" -> noteUrl)
+          ("evernote-auth-token" -> authToken) + ("evernote-note-url" -> noteUrl) + ("evernote-user-shard" -> userShard)
       )
     }
     result getOrElse BadRequest

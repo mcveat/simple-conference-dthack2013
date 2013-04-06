@@ -2,7 +2,7 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import models.Conference
+import models.ConferenceDao
 import client.Evernote
 
 object Application extends Controller {
@@ -24,9 +24,11 @@ object Application extends Controller {
         contacts <- (json \ "contacts").asOpt[String]
         noteUrl <- request.session.get("evernote-note-url")
         authToken <- request.session.get("evernote-auth-token")
+        userShard <- request.session.get("evernote-user-shard")
       } yield {
-        val c = Conference.create(date, agenda, extractContacts(contacts))
-        Evernote.storeAgenda(noteUrl, authToken, c)
+        val c = ConferenceDao.create(date, agenda, extractContacts(contacts))
+        val agendaUrl = Evernote.storeAgenda(noteUrl, authToken, userShard, c)
+        ConferenceDao.addAgendaUrl(c, agendaUrl)
         Ok
       }
     }

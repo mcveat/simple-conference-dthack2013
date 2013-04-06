@@ -7,8 +7,8 @@ import org.scribe.model.{Verifier, Token}
 import models.Conference
 import com.evernote.thrift.transport.THttpClient
 import com.evernote.thrift.protocol.TBinaryProtocol
-import com.evernote.edam.notestore.NoteStore.Client
 import com.evernote.edam.`type`.Note
+import com.evernote.edam.notestore.NoteStore.Client
 
 /**
  * User: mcveat
@@ -28,14 +28,18 @@ object Evernote {
     val t = new Token(requestToken, requestSecret)
     val v = new Verifier(verifier)
     val authToken = new EvernoteAuthToken(service.getAccessToken(t, v))
-    (authToken.getToken, authToken.getNoteStoreUrl)
+    (authToken.getToken, authToken.getNoteStoreUrl, authToken.getUserShard)
   }
-  def storeAgenda(noteUrl: String, authToken: String, c: Conference) = {
-    val note: Note = buildAgendaNote(c)
+  def storeAgenda(noteUrl: String, authToken: String, userShard: String, c: Conference) = {
+    val note = buildAgendaNote(c)
     val protocol = new TBinaryProtocol(new THttpClient(noteUrl))
-    val client = new Client(protocol, protocol)
-    client.createNote(authToken, note)
+    val client = new Client(protocol)
+    val newNote = client.createNote(authToken, note)
+    val shareKey = client.shareNote(authToken, newNote.getGuid)
+    getSharedNoteUrl(userShard, newNote.getGuid, shareKey)
   }
+  private def getSharedNoteUrl(shardId: String, guid: String, share: String) =
+    "%s/shard/%s/sh/%s/%s".format(url, shardId, guid, share)
   private def buildAgendaNote(c: Conference): Note = {
     val note = new Note
     note.setTitle("Conference call at %s" format c.date)

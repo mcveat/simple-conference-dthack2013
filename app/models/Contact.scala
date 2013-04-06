@@ -5,7 +5,7 @@ import play.api.Play.current
 import anorm._
 import anorm.SqlParser._
 import java.sql.Connection
-import Conference.ContactData
+import ConferenceDao.ContactData
 
 /**
  * User: mcveat
