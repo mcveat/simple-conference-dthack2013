@@ -5,6 +5,11 @@
 # Home page
 GET     /                           controllers.Application.index
 POST    /new-conference             controllers.Application.newConference
+GET     /reset                      controllers.Application.resetSession
+
+GET     /evernote-login             controllers.EvernoteAuth.evernoteLogin
+GET     /evernote-callback          controllers.EvernoteAuth.evernoteCallback
+
 GET     /console                    controllers.Console.index
 
 GET     /js-routes                  controllers.Application.javascriptRoutes

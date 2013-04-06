@@ -9,6 +9,8 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     // Add your project dependencies here,
+    "com.evernote" % "evernote-api" % "1.23",
+    "org.scribe" % "scribe" % "1.3.3",
     jdbc,
     anorm
   )

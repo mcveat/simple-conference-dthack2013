@@ -3,11 +3,17 @@ package controllers
 import play.api._
 import play.api.mvc._
 import models.Conference
+import client.Evernote
 
 object Application extends Controller {
   
-  def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+  def index = Action { implicit request =>
+    val result = for {
+      authToken <- request.session.get("evernote-auth-token")
+    } yield {
+      Ok(views.html.newConference())
+    }
+    result getOrElse Ok(views.html.evernoteLogin())
   }
 
   def newConference = Action { implicit request =>
@@ -22,6 +28,10 @@ object Application extends Controller {
       }
     }
     result getOrElse BadRequest
+  }
+
+  def resetSession = Action {
+    SeeOther(routes.Application.index.url).withNewSession
   }
 
   private def extractContacts(s: String) = {
