@@ -251,7 +251,7 @@ section .setuppart .initiator .highlight {
 
 .ffooter {
 	margin: 0;
-	padding: 7px 0 0 0;
+	padding: 14px 0 0 0;
 	border-top: 2px solid #141414;
 	background: #000;
 	background: url(../img/bgfooter.png);
