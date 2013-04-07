@@ -170,6 +170,10 @@ section .setuppart .addpart {
 	padding-bottom: 7px;
 }
 
+.addpart hr:last-child {
+	margin-bottom: 14px;
+}
+
 section .setuppart .bold {
 	font-weight: bold;
 }
@@ -268,6 +272,49 @@ section .setuppart .initiator .highlight {
 	-webkit-text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
 	-moz-text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9));
 	text-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
+}
+
+.buttonadd input.cbutton {
+	background-image: linear-gradient(bottom, rgb(4,141,239) 100%, rgb(0,89,152) 0%);
+	background-image: -o-linear-gradient(bottom, rgb(4,141,239) 100%, rgb(0,89,152) 0%);
+	background-image: -moz-linear-gradient(bottom, rgb(4,141,239) 100%, rgb(0,89,152) 0%);
+	background-image: -webkit-linear-gradient(bottom, rgb(4,141,239) 100%, rgb(0,89,152) 0%);
+	background-image: -ms-linear-gradient(bottom, rgb(4,141,239) 100%, rgb(0,89,152) 0%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, rgb(4,141,239)),
+		color-stop(0, rgb(0,89,152))
+	);
+		
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, .5);
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 28px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #000;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2), inset 0px 1px 1px rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2), inset 0px 1px 1px rgba(255, 255, 255, 0.5);
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2), inset 0px 1px 1px rgba(255, 255, 255, 0.5);
+	top: -1px;
+	position: relative;			
+}
+
+
+.buttonadd input.cbutton:hover {
+	-webkit-box-shadow: 0px 2px 25px rgba(253, 254, 194, 0.8);
+	-moz-box-shadow: 0px 2px 25px rgba(253, 254, 194, 0.8);
+	box-shadow: 0px 2px 25px rgba(253, 254, 194, 0.8);
 }
 
 
@@ -416,8 +463,53 @@ ul.categories li a:active {
 }
 
 
-/* #Login page
+/* =start page
 ================================================== */
+
+.hero.herologo {
+visibility: visible;
+opacity: 1;
+transition: opacity 2s linear;
+/*
+	-webkit-transition: visibility 0s 2s, opacity 2s linear;
+	-moz-transition: visibility 0s 2s, opacity 2s linear;	
+	-o-transition: visibility 0s 2s, opacity 2s linear;	
+	-ms-transition: visibility 0s 2s, opacity 2s linear;
+	transition: visibility 0s 2s, opacity 2s linear; */
+}
+
+.hero figure {
+	position: 
+	margin: 35px 0 0 0;	
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.hero {
+	padding-top: 140px;
+}
+
+
+/* thanks to: Chris */
+.hero img.logotype {
+	width: 534px;
+	height: 111px;
+	display: block;
+	margin: 0 auto;
+}
+
+.hero img.auth {
+	width: 358px;
+	height: 50px;
+	display: block;
+	margin: 70px auto 210px auto;
+}
+
+.hero img.auth:hover {
+	-webkit-box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.3);
+}
 
 h3.lbutton {
 	margin: 7px 0 210px 0;
@@ -457,7 +549,7 @@ h3.lbutton a:hover {
 }
 
 
-/* #Login page
+/* #confirmation page
 ================================================== */
 
 body.confirm .confirmation {
@@ -487,9 +579,7 @@ body.confirm h4 {
 }
 
 body.confirm .companylogo {
-	margin: 7px 0 0 0;
-	float: right;
-	position: relative;
+	text-align: right;
 }
 
 body.confirm .summary {
@@ -506,7 +596,8 @@ body.confirm .summary .ctitle {
 	color: #fff;
 	font-weight: bold;
 	line-height: 1em;
-	padding: 7px 0 7px 0;
+	padding: 7px 0 7px 28px;
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.5);
 	margin: 0 0 21px 0px;
 	background: rgba(0,0,0,0.5);
 }
