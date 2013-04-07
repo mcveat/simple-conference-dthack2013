@@ -439,6 +439,10 @@ ul.categories li a:active {
 	padding: 0 14px;
 }
 
+ .sub.partners {
+	margin: 21px 0 7px 0;
+}
+
 .sub header h4 {
 	font-size: 14px;
 	text-transform: uppercase;
@@ -689,6 +693,8 @@ body.confirm .summaryend {
 
 /* #Font-Face
 ================================================== */
+
+
 
 @font-face {
 	font-family: 'WebSymbolsRegular';
