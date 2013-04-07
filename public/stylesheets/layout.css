@@ -469,24 +469,6 @@ ul.categories li a:active {
 /* =start page
 ================================================== */
 
-.hero.herologo {
-visibility: visible;
-opacity: 1;
-transition: opacity 2s linear;
-/*
-	-webkit-transition: visibility 0s 2s, opacity 2s linear;
-	-moz-transition: visibility 0s 2s, opacity 2s linear;
-	-o-transition: visibility 0s 2s, opacity 2s linear;
-	-ms-transition: visibility 0s 2s, opacity 2s linear;
-	transition: visibility 0s 2s, opacity 2s linear; */
-}
-
-.hero figure {
-	position:
-	margin: 35px 0 0 0;
-	margin-right: auto;
-	margin-left: auto;
-}
 
 .hero {
 	padding-top: 140px;
@@ -684,6 +666,71 @@ section.confirm .summaryend {
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 	@media only screen and (max-width: 479px) {}
+
+
+/* animation
+// via Robert McIntosh http://cssnerd.com/2012/04/03/jquery-like-pure-css3-image-fade-in/
+================================================== */
+
+.fadeIn {
+
+	/* CSS needed for animation
+	---------------------------------------------------- */
+	opacity:0;
+	-webkit-animation:fadeIn ease-in 1;
+	-moz-animation:fadeIn ease-in 1;
+	-o-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+/* Animation Times - Time for image to fade in
+---------------------------------------------------- */
+.fadeIn-1s {
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	-o-animation-duration:1s;
+	animation-duration:1s;
+}
+
+.fadeIn-05s {
+	-webkit-animation-duration:.5s;
+	-moz-animation-duration:.5s;
+	-o-animation-duration:.5s;
+	animation-duration:.5s;
+}
+
+/* Animation Delay - Time for image to be delayed
+---------------------------------------------------- */
+.fadeIn-Delay-1s {
+	-webkit-animation-delay:1s;
+	-moz-animation-delay:1s;
+	-o-animation-delay:1s;
+	animation-delay:1s;
+}
+
+.fadeIn-Delay-02s {
+	-webkit-animation-delay:.2s;
+	-moz-animation-delay:.2s;
+	-o-animation-delay:.2s;
+	animation-delay:.2s;
+}
+
+
+
+
+/* Key Frames
+---------------------------------------------------- */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-o-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+
+
 
 
 /* #Font-Face
