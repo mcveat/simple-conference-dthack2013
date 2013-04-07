@@ -1,5 +1,27 @@
 @()(implicit request: Request[AnyContent])
 
-@main("Connect to Evernote") {
-    <a href="@routes.EvernoteAuth.evernoteLogin()" >Login to evernote</a>
+@frame("Connect to Evernote") {
+    <div class="container">
+        <div class="sixteen columns">
+            <div class="hero">
+                <img class="logotype fade" src="/assets/img/logoxl.png">
+                <a href="@routes.EvernoteAuth.evernoteLogin()" >
+                    <img class="auth fade" src="/assets/img/connect_evernote_button.png">
+                </a>
+            </div> <!-- end hero -->
+        </div> <!-- end sixteen columns -->
+    </div>
+
+
+    <div class="band ffooter">
+        <footer class="container">
+            <div class="eight columns first-credit">
+                <p>Copyright &copy; 2013 CallSpark</p>
+            </div> <!-- end eight -->
+
+            <div class="eight columns last-credit">
+                <p> by <a href="http://www.twitter.com/jdker/">@@jdker</a> and <a href="http://www.twitter.com/mcveat/">@@mcveat</a></p>
+            </div>
+        </footer<!-- end container -->
+    </div><!-- end bottom band -->
 }
