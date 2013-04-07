@@ -1,6 +1,7 @@
 @(initiator: Boolean, data: Option[(String, String, String)] = None)
 
 <div class="addpart @if(initiator) { initiator }">
+    @if(initiator) { <p class="highlight">Meeting initiator</p> }
     <form class="name clearfix">
         <input type="text" placeholder="Name" name="name" value="@data.map(_._1)" />
     </form>
