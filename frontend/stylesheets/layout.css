@@ -694,34 +694,34 @@ body.confirm .summaryend {
  
 /* Animation Times - Time for image to fade in
 ---------------------------------------------------- */
-.fadeIn-3s {
-	-webkit-animation-duration:3s;
-	-moz-animation-duration:3s;
-	-o-animation-duration:3s;
-	animation-duration:3s;
+.fadeIn-1s {
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	-o-animation-duration:1s;
+	animation-duration:1s;
 }
  
-.fadeIn-5s {
-	-webkit-animation-duration:5s;
-	-moz-animation-duration:5s;
-	-o-animation-duration:5s;
-	animation-duration:5s;
+.fadeIn-05s {
+	-webkit-animation-duration:.5s;
+	-moz-animation-duration:.5s;
+	-o-animation-duration:.5s;
+	animation-duration:.5s;
 }
  
 /* Animation Delay - Time for image to be delayed
 ---------------------------------------------------- */
-.fadeIn-Delay-3s {
-	-webkit-animation-delay:3s;
-	-moz-animation-delay:3s;
-	-o-animation-delay:3s;
-	animation-delay:3s;
+.fadeIn-Delay-1s {
+	-webkit-animation-delay:1s;
+	-moz-animation-delay:1s;
+	-o-animation-delay:1s;
+	animation-delay:1s;
 }
  
-.fadeIn-Delay-5s {
-	-webkit-animation-delay:5s;
-	-moz-animation-delay:5s;
-	-o-animation-delay:5s;
-	animation-delay:5s;
+.fadeIn-Delay-02s {
+	-webkit-animation-delay:.2s;
+	-moz-animation-delay:.2s;
+	-o-animation-delay:.2s;
+	animation-delay:.2s;
 }
 
 
