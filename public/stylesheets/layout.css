@@ -250,7 +250,7 @@ section .setuppart .initiator .highlight {
 
 .ffooter {
 	margin: 0;
-	padding: 7px 0 0 0;
+    padding: 14px 0 0 0;
 	border-top: 2px solid #141414;
 	background: #000;
 	background: url(/assets/img/bgfooter.png);
@@ -436,6 +436,10 @@ ul.categories li a:active {
 	line-height: 1em;
 	margin: 7px 0 7px 0;
 	padding: 0 14px;
+}
+
+.sub.partners {
+    margin: 21px 0 7px 0;
 }
 
 .sub header h4 {
