@@ -6,6 +6,8 @@
 GET     /                           controllers.Application.index
 POST    /new-conference             controllers.Application.newConference
 GET     /reset                      controllers.Application.resetSession
+GET     /confirm/:id                controllers.Application.confirm(id: Long)
+GET     /conference/:id             controllers.Application.conference(id: Long)
 
 GET     /evernote-login             controllers.EvernoteAuth.evernoteLogin
 GET     /evernote-callback          controllers.EvernoteAuth.evernoteCallback

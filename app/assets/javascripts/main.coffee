@@ -21,7 +21,7 @@ $ ->
       contentType: 'application/json'
       url: jsRoutes.controllers.Application.newConference().url
       data: JSON.stringify data
-      success: -> alert 'done'
+      success: (data) -> window.location = data
       error: -> alert 'failed'
 
   $('.console-item button[data-action="start-conference"]').click (e) ->

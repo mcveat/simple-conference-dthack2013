@@ -1,0 +1,35 @@
+@(c: Conference)(heading: Html)
+
+@main(c.title) {
+    <section class="confirm">
+    <div class="container">
+        <div class="twelve columns confirmation">
+            @heading
+
+            <div class="summary">
+                <div class="ctitle">Let's settle this!</div>
+                <p>takes place on <span class="cdate highlight">@c.date</span>.</p>
+                <hr />
+
+                <div class="cpartsummary">
+                    @c.initiator.map { i =>
+                        <div class="cpartsummarytxt">The meeting initiator is <span class="cinitiator highlight">@i.name</span>.</div>
+                    }
+                    <div class="cpartsummarytxt">Additionally, <span class="trademark">CallSpark</span> will call the following participants at that time:</div>
+                    <ul>
+                        @c.invited.map { i =>
+                            <li class="cpart"><span class="cpartname highlight">@i.name</span> ( <span class="cpartemail">@i.email</span> )</li>
+                        }
+                    </ul>
+                </div> <!-- end cpartsummary -->
+                <div class="summaryend">
+                        The meeting agenda is already <a class="clink" href="@c.agendaUrl">saved on Evernote&reg;</a></span>.
+                </div> <!-- end summaryend -->
+            </div> <!-- end summary -->
+
+
+
+        </div> <!-- end twelve columns -->
+    </div>
+    </section>
+}

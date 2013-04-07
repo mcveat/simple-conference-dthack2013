@@ -9,7 +9,10 @@ import anorm.SqlParser._
  * User: mcveat
  */
 case class Conference(id: Long, date: String, title: String, agenda: String, contacts: Seq[Contact] = Seq(),
-                      agendaUrl: Option[String] = None)
+                      agendaUrl: Option[String] = None) {
+  def initiator = contacts.find(_.initiator)
+  def invited = contacts.find(!_.initiator)
+}
 
 object ConferenceDao {
   type ContactData = (Option[String], Option[String])
@@ -27,7 +30,7 @@ object ConferenceDao {
       .executeUpdate()
     c.copy(agendaUrl = Some(agendaUrl))
   }
-  def find(id: Int) = DB.withConnection { implicit c =>
+  def find(id: Long) = DB.withConnection { implicit c =>
     SQL("select * from conference where id = {id}").on('id -> id).singleOpt(parser)
   }
   val parser = long("id") ~ str("date") ~ str("title") ~ str("agenda") ~ get[Option[String]]("agenda_url") map {

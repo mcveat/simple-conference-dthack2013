@@ -6,6 +6,7 @@ import models.{FormContact, ConferenceDao}
 import client.Evernote
 import util.Mailer
 import play.api.libs.json.JsValue
+import play.api.templates.Html
 
 object Application extends Controller {
   
@@ -33,10 +34,22 @@ object Application extends Controller {
         val agendaUrl = Evernote.storeAgenda(noteUrl, authToken, userShard, c)
         val cc = ConferenceDao.addAgendaUrl(c, agendaUrl)
         Mailer.sendInvitations(cc)
-        Ok
+        Ok(routes.Application.confirm(cc.id).url)
       }
     }
-    result getOrElse BadRequest
+    result getOrElse BadRequest("")
+  }
+
+  def confirm(id: Long) = Action {
+    ConferenceDao.find(id).map { c =>
+      Ok(views.html.confirm(c))
+    }.getOrElse(BadRequest(""))
+  }
+
+  def conference(id: Long) = Action {
+    ConferenceDao.find(id).map { c =>
+      Ok(views.html.conference(c)(Html("")))
+    }.getOrElse(BadRequest)
   }
 
   def resetSession = Action {
