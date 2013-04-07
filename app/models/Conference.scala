@@ -11,7 +11,7 @@ import anorm.SqlParser._
 case class Conference(id: Long, date: String, title: String, agenda: String, contacts: Seq[Contact] = Seq(),
                       agendaUrl: Option[String] = None) {
   def initiator = contacts.find(_.initiator)
-  def invited = contacts.find(!_.initiator)
+  def invited = contacts.filter(!_.initiator)
 }
 
 object ConferenceDao {

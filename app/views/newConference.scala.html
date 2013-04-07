@@ -38,40 +38,14 @@
                 <p class="title">Add participants</p>
                 <hr />
 
-                <div class="addpart initiator">
-                    <p class="highlight">Meeting initiator</p>
-                    <form class="name clearfix">
-                        <input type="text" placeholder="Name" name="name" value="Vincent Vega" />
-                    </form>
-                    <div class="five columns alpha">
-                        <form class="email clearfix">
-                            <input type="email" placeholder="Email" name="email" value="whoismarcellus@@wallace.web" />
-                        </form>
-                    </div>
-                    <div class="five columns omega">
-                        <form class="phone clearfix">
-                            <input type="text" placeholder="Phone no." name="phone" value="+493200000001" />
-                        </form>
-                    </div>
-                    <hr />
-                </div> <!-- end addpart -->
+                @participantForm(true, Some(("Vincent Vega", "whoismarcellus@wallace.web", "+493200000001")))
+                @participantForm(false, Some(("Jules Winnfield", "quarterpounder@gmail.web", "+493200000002")))
 
-                <div class="addpart">
-                    <form class="name clearfix">
-                        <input type="text" placeholder="Name" name="name" value="Jules Winnfield" />
-                    </form>
-                    <div class="five columns alpha">
-                        <form class="email clearfix">
-                            <input type="email" placeholder="Email" name="email" value="quarterpounder@@gmail.web" />
-                        </form>
-                    </div>
-                    <div class="five columns omega">
-                        <form class="phone clearfix">
-                            <input type="text" placeholder="Phone no." name="phone" value="+493200000002" />
-                        </form>
-                    </div>
-                    <hr />
-                </div> <!-- end addpart -->
+                <div class="buttonadd">
+                    <input type="submit" name="add" value="add participant" class="cbutton" id="next-participant" />
+                </div>
+
+                <hr />
 
             </div> <!-- end setuppart -->
 

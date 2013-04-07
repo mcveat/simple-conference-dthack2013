@@ -1,0 +1,18 @@
+@(initiator: Boolean, data: Option[(String, String, String)] = None)
+
+<div class="addpart @if(initiator) { initiator }">
+    <form class="name clearfix">
+        <input type="text" placeholder="Name" name="name" value="@data.map(_._1)" />
+    </form>
+    <div class="five columns alpha">
+        <form class="email clearfix">
+            <input type="email" placeholder="Email" name="email" value="@data.map(_._2)" />
+        </form>
+    </div>
+    <div class="five columns omega">
+        <form class="phone clearfix">
+            <input type="text" placeholder="Phone no." name="phone" value="@data.map(_._3)" />
+        </form>
+    </div>
+    <hr />
+</div> <!-- end addpart -->

@@ -52,6 +52,8 @@ object Application extends Controller {
     }.getOrElse(BadRequest)
   }
 
+  def participantForm = Action { Ok(views.html.participantForm(false, None)) }
+
   def resetSession = Action {
     SeeOther(routes.Application.index.url).withNewSession
   }
@@ -70,7 +72,8 @@ object Application extends Controller {
     Ok(
       Routes.javascriptRouter("jsRoutes")(
         routes.javascript.Application.newConference,
-        routes.javascript.Telekom.startConference
+        routes.javascript.Telekom.startConference,
+        routes.javascript.Application.participantForm
       )
     ).as("text/javascript")
   }

@@ -31,3 +31,10 @@ $ ->
       url: jsRoutes.controllers.Telekom.startConference(id).url
       success: -> alert 'done'
       error: -> alert 'failed'
+
+  $('#next-participant').click (e) ->
+    $.ajax
+      type: 'GET'
+      url: jsRoutes.controllers.Application.participantForm().url
+      success: (data) ->
+        $(e.target).closest('.buttonadd').before data
