@@ -470,24 +470,6 @@ ul.categories li a:active {
 /* =start page
 ================================================== */
 
-.hero.herologo {
-visibility: visible;
-opacity: 1;
-transition: opacity 2s linear;
-/*
-	-webkit-transition: visibility 0s 2s, opacity 2s linear;
-	-moz-transition: visibility 0s 2s, opacity 2s linear;	
-	-o-transition: visibility 0s 2s, opacity 2s linear;	
-	-ms-transition: visibility 0s 2s, opacity 2s linear;
-	transition: visibility 0s 2s, opacity 2s linear; */
-}
-
-.hero figure {
-	position: 
-	margin: 35px 0 0 0;	
-	margin-right: auto;
-	margin-left: auto;
-}
 
 .hero {
 	padding-top: 140px;
@@ -691,10 +673,73 @@ body.confirm .summaryend {
 	@media only screen and (max-width: 479px) {}
 
 
-/* #Font-Face
+/* animation 
+// via Robert McIntosh http://cssnerd.com/2012/04/03/jquery-like-pure-css3-image-fade-in/
 ================================================== */
 
+.fadeIn {
+ 
+	/* CSS needed for animation
+	---------------------------------------------------- */
+	opacity:0;
+	-webkit-animation:fadeIn ease-in 1;
+	-moz-animation:fadeIn ease-in 1;
+	-o-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+ 
+/* Animation Times - Time for image to fade in
+---------------------------------------------------- */
+.fadeIn-3s {
+	-webkit-animation-duration:3s;
+	-moz-animation-duration:3s;
+	-o-animation-duration:3s;
+	animation-duration:3s;
+}
+ 
+.fadeIn-5s {
+	-webkit-animation-duration:5s;
+	-moz-animation-duration:5s;
+	-o-animation-duration:5s;
+	animation-duration:5s;
+}
+ 
+/* Animation Delay - Time for image to be delayed
+---------------------------------------------------- */
+.fadeIn-Delay-3s {
+	-webkit-animation-delay:3s;
+	-moz-animation-delay:3s;
+	-o-animation-delay:3s;
+	animation-delay:3s;
+}
+ 
+.fadeIn-Delay-5s {
+	-webkit-animation-delay:5s;
+	-moz-animation-delay:5s;
+	-o-animation-delay:5s;
+	animation-delay:5s;
+}
 
+
+
+
+/* Key Frames
+---------------------------------------------------- */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-o-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+
+
+
+
+/* #Font-Face
+================================================== */
 
 @font-face {
 	font-family: 'WebSymbolsRegular';
