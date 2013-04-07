@@ -1,4 +1,4 @@
-@(c: Conference)
+@(c: Conference)(implicit request: Request[AnyContent])
 
 @conference(c) {
     <h2><span class="icon checkmark">.</span> Great success!</h2>

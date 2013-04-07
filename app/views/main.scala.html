@@ -1,43 +1,6 @@
-@(title: String)(content: Html)
+@(title: String)(content: Html)(implicit request: Request[AnyContent])
 
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-<head>
-
-        <!-- Basic Page Needs
-  ================================================== -->
-    <meta charset="utf-8">
-    <title>CallSpark - Simple conference calling - @title</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-        <!-- Mobile Specific Metas
-  ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-        <!-- CSS
-  ================================================== -->
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/base.css")">
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/skeleton.css")">
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/layout.css")">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-        <!-- Favicons
-	================================================== -->
-    <link rel="shortcut icon" href="@routes.Assets.at("img/favicon.ico")">
-    <link rel="apple-touch-icon" href="@routes.Assets.at("img/apple-touch-icon.png")">
-    <link rel="apple-touch-icon" sizes="72x72" href="@routes.Assets.at("img/apple-touch-icon-72x72.png")">
-    <link rel="apple-touch-icon" sizes="114x114" href="@routes.Assets.at("img/apple-touch-icon-114x114.png")">
-</head>
-<body>
+@frame(title) {
     <div class="band header">
         <header class="container main">
             <div class="sixteen columns">
@@ -96,5 +59,4 @@
     <script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript"></script>
 
             <!-- End Document ================================================== -->
-</body>
-</html>
+}

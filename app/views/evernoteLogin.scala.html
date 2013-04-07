@@ -1,4 +1,4 @@
-@()
+@()(implicit request: Request[AnyContent])
 
 @main("Connect to Evernote") {
     <a href="@routes.EvernoteAuth.evernoteLogin()" >Login to evernote</a>

@@ -8,7 +8,7 @@ import models.ConferenceDao
  * User: mcveat
  */
 object Console extends Controller {
-  def index = Action {
+  def index = Action { implicit request =>
     Ok(views.html.console(ConferenceDao.list))
   }
 }

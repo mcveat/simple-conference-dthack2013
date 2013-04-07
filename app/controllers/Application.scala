@@ -40,13 +40,13 @@ object Application extends Controller {
     result getOrElse BadRequest("")
   }
 
-  def confirm(id: Long) = Action {
+  def confirm(id: Long) = Action { implicit request =>
     ConferenceDao.find(id).map { c =>
       Ok(views.html.confirm(c))
     }.getOrElse(BadRequest(""))
   }
 
-  def conference(id: Long) = Action {
+  def conference(id: Long) = Action { implicit request =>
     ConferenceDao.find(id).map { c =>
       Ok(views.html.conference(c)(Html("")))
     }.getOrElse(BadRequest)

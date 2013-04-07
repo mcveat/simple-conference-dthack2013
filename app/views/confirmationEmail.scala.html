@@ -1,11 +1,10 @@
-@(c: Conference)(heading: Html)(implicit request: Request[AnyContent])
+@(c: Conference)(implicit request: Request[AnyContent])
 
-@main(c.title) {
-    <section class="confirm">
+@frame("") {
+<section class="confirm">
     <div class="container">
         <div class="twelve columns confirmation">
-            @heading
-
+            <h2>You're invited to join conference call!</h2>
             <div class="summary">
                 <div class="ctitle">Let's settle this!</div>
                 <p>takes place on <span class="cdate highlight">@c.date</span>.</p>
@@ -31,5 +30,6 @@
 
         </div> <!-- end twelve columns -->
     </div>
-    </section>
+</section>
 }
+
