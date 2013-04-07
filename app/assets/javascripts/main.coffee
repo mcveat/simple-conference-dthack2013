@@ -1,7 +1,8 @@
 $ ->
   $('#new-conference').click (e) ->
     e.preventDefault()
-    container = $(e.target).closest '.container'
+    target = $(e.target)
+    container = target.closest '.container'
     date = container.find('input[name=date]').val()
     time = container.find('input[name=time]').val()
     contacts = $.map container.find('.addpart'), (e) ->
@@ -15,6 +16,8 @@ $ ->
       title: container.find('input[name=title]').val()
       agenda: container.find('textarea[name=agenda]').val()
       contacts: contacts
+
+    target.attr 'value', 'Sending...'
 
     $.ajax
       type: 'POST'
