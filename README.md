@@ -5,6 +5,6 @@ Application made in 24 hours at Evernote & Deutsche Telekom hackaton april 2013 
 
 Hack to make conference calling better. Drop necessary information on the form and let the magic happen:
  * agenda is saved to Evernote and shared by email with all recipients
- * call is made _(in the real world it should be scheudled by having 24h only we went for console where you can fire the call by yourself, go to */console* to check it)_
+ * call is made _(in the real world it should be scheudled, but because of 24h constraint we went for console where you can fire the call by yourself, go to */console* to check it)_
 
-Results can be see on http://simple-conf.herokuapp.com/ and calls are possible as long as there is credit on our account (not long).
+Results can be seen on http://simple-conf.herokuapp.com/ and calls are possible as long as there is credit on our account (not long).
